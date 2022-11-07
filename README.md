@@ -46,10 +46,13 @@ Please download `Plant_leaf_diseases_dataset_without_augmentation.zip`(828MB), t
 * Plant Leaves: i.e., `plant_leaves` (https://data.mendeley.com/datasets/hb74ynkjcn/1).
 Please click `download All` (6718 MB) and put them in a folder which should be named `plant_leaves`. Combine the sub-folder name and sub-sub-folder names. E.g., `Alstonia Scholaris (P2) ` has `diseased` & `healthy`, then rename them to `AlstoniaScholaris_diseased` & `AlstoniaScholaris_healthy`. Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/ plant_leaves/AlstoniaScholaris_diseased`.
 
-* PlantDoc-0.2: i.e., `PlantDoc` (https://github.com/pratikkayal/PlantDoc-Dataset). 
-Please download `PlantDoc-Dataset` and rename the folder name to `PlantDoc_Dataset`, Please remove the folder `Tomato two spotted spider mites leaf`which only has two pictures in the `test` folder first. Then copy all items from the `test` folder to the `train` folder (Note: the images are case sensitive, and may not be suitable for some Windows environments). Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/PlantDoc_Dataset/train`.
+* PlantDoc-0.2: i.e., `PlantDoc` (https://github.com/pratikkayal/PlantDoc-Dataset)
+
+Please download `PlantDoc-Dataset` and rename the folder name to `PlantDoc_Dataset`, Please remove the folder `Tomato two spotted spider mites leaf` which has only two pictures in the `test` folder first. **Please copy all items from the `test` folder to the `train` folder** (Note: the images are case sensitive, and may not be suitable for some Windows environments). Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/PlantDoc_Dataset/train`.
 	
 * PlantDoc-1.0: i.e., `PlantDoc_original` (https://github.com/pratikkayal/PlantDoc-Dataset)
+Please download `PlantDoc-Dataset` and rename the folder name to `PlantDoc_original`, Please remove the folder `Tomato two spotted spider mites leaf` which has only two pictures in the `test` folder first. **Please keep the `test` folder and the `train` folder** (Note: the images are case sensitive, and may not be suitable for some Windows environments). Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/PlantDoc_original/train` and `/home/user/Leaf_diseases/Datasets/PlantDoc_original/test`.
+
 
 
 ## Parameters in main.py
