@@ -34,6 +34,17 @@ Our New Model Structure:
 ## Usage
 Please modify the parameters in `main.py`, then run `python main.py`.
 
+## Datasets
+Please downloads the related datasets and put them in the path of dataset_dir.
+
+* Plant Village: i.e., `plant_village` (https://data.mendeley.com/datasets/tywbtsjrjv/1).
+
+* Plant Leaves: i.e., `plant_leaves` (https://data.mendeley.com/datasets/hb74ynkjcn/1).
+
+* PlantDoc-0.2: i.e., `PlantDoc` (https://github.com/pratikkayal/PlantDoc-Dataset).
+
+* PlantDoc-1.0: i.e., `PlantDoc_original` (https://github.com/pratikkayal/PlantDoc-Dataset).
+
 
 ## Parameters in main.py
 | Parameter                      | Description                                 |
