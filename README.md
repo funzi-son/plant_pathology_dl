@@ -95,7 +95,7 @@ Comparison of approaches
 </p>
 
 <p align="center">
-  <img width="800" src="figs/Both.png">
+  <img width="1000" src="figs/Both.png">
 </p>
 
 <p align="center">
