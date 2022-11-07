@@ -77,17 +77,25 @@ Please download `PlantDoc-Dataset` and rename the folder name to `PlantDoc_origi
 ## Comparison & Results
 <p align="center">
   <img width="600" src="figs/comparison_of_backbones.png">
-Comparison of backbone CNNs
+</p>
+
+<p align="center">
+// Comparison of backbone CNNs
 </p>
 
 <p align="center">
   <img width="600" src="figs/comparison_of_approaches.png">
-Comparison of approaches
+</p>
+
+
+<p align="center">
+// Comparison of approaches
 </p>
 
 <p align="center">
   <img width="600" src="figs/Both.png">
-Both (Type & Disease) Results
+//Both (Type & Disease) Results
 </p>
+
 
 
