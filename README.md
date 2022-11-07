@@ -1,7 +1,5 @@
 # plant_pathology_dl
 _______________________________________________________________________________________________________________________________________________________________
-# Deep Learning for Plant Identification and Disease  Classification from Leaf Images: Multi-prediction Approaches
-
 This is the code for paper "Deep Learning for Plant Identification and Disease  Classification from Leaf Images: Multi-prediction Approaches"
 
 
