@@ -35,9 +35,6 @@ Our New Model Structure:
 Please modify the parameters in `main.py`, then run `python main.py`.
 
 ## Datasets
-Please downloads the related datasets and put them in the path of dataset_dir.
-
-## Datasets
 Please downloads the related datasets and put them in the path of dataset_dir (e.g., `/home/user/Leaf_diseases/Datasets/`).
 
 * Plant Village: i.e., `plant_village` (https://data.mendeley.com/datasets/tywbtsjrjv/1).
