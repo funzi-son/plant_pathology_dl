@@ -17,8 +17,8 @@ Python >= 3.7
 ## Parameters in main.py
 | Parameter                      | Description                                 |
 | ----------------------------- | ---------------------------------------- |
-| ‘item’                     |  Dataset name, i.e., ‘plant_village’, ‘plant_leaves’, ‘PlantDoc’ & ‘PlantDoc_original’. |
-| ‘obj’                     |  .|
+| `item`                     |  Dataset name, i.e., `plant_village`, `plant_leaves`, `PlantDoc` & `PlantDoc_original`. |
+| `obj`                     |  .|
 | `model_name`                     |  .|
 | `saveornot`                     |  .|
 | `fig_size`                     |  .|
@@ -33,6 +33,7 @@ Python >= 3.7
 | `p_w`                     |  .|
 | `d_w `                     |  .|
 | `balance_weight`                     |  .|
+
 
 
 
