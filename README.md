@@ -98,6 +98,21 @@ Comparison of approaches
 </p>
 
 <p align="center">
+  <img width="1000" src="figs/Plant.png">
+</p>
+
+<p align="center">
+Plant Type Results
+</p>
+
+<p align="center">
+  <img width="1000" src="figs/Disease.png">
+</p>
+
+<p align="center">
+Plant Disease Results
+</p>
+<p align="center">
   <img width="1000" src="figs/Both.png">
 </p>
 
