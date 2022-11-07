@@ -5,10 +5,18 @@ This is the code for paper "Deep Learning for Plant Identification and Disease  
 **Abstract**: Deep learning has been playing an important role in modern agriculture, especially in plant pathology using leaf images where convolutional neural networks (CNN) are attracting a lot of attention. In this paper, we start our study by surveying current deep learning approaches for plant identification and disease classification. We categorise the approaches into multi-model, multi-label, multi-output, and multi-task, in which different backbone CNNs can be employed. Furthermore, based on the survey of existing approaches in plant pathology and the study of available approaches in machine learning, we propose a new model named Generalised Stacking Multi-output CNN (GSMo-CNN). To investigate the effectiveness of different backbone CNNs and learning approaches, we conduct an intensive experiment on three benchmark datasets Plant Village, Plant Leaves, and PlantDoc. The experiment results demonstrate that InceptionV3 can be a good choice for a backbone CNN as its performance is better than AlexNet, VGG16, ResNet101, EfficientNet, MobileNet, and a custom CNN developed by us. Interestingly, there is empirical evidence to support the hypothesis that using a single model for both tasks can be comparable or better than using two models, one for each task. Finally, we show that the proposed GSMo-CNN achieves state-of-the-art performance on three benchmark datasets.
 
 ## Requirements
-Python >= 3.7
-
-
-
+* Python >= 3.7
+* h5py = 3.1.0
+* Matplotlib = 3.5.1
+* Numpy = 1.19.2
+* opencv-contrib-python = 4.5.5.64 
+* opencv-python = 4.5.5.64
+* Pandas = 1.4.2
+* scikit-learn = 1.0.2
+* tensorflow-gpu = 2.4.1 or 2.6.0
+* Imutils = 0.5.4
+* PyTorch = 1.11.0
+* torchvision = 0.12.0
 
 ## Usage
 Please modify the parameters in `main.py`, then run `python main.py`.
