@@ -35,7 +35,7 @@ Our New Model Structure:
 Please modify the parameters in `main.py`, then run `python main.py`.
 
 ## Datasets
-Please downloads the related datasets and put them in the path of dataset_dir (e.g., `/home/user/Leaf_diseases/Datasets/`).
+Please download the related datasets and put them in the path of `dataset_dir` (e.g., `/home/user/Leaf_diseases/Datasets/`).
 
 * Plant Village: i.e., `plant_village` (https://data.mendeley.com/datasets/tywbtsjrjv/1).
 Please download `Plant_leaf_diseases_dataset_without_augmentation.zip`(828MB), then unzip it and rename the folder name to `plant_village` (Note: please remove sub-folder `Background_without_leaves` in `Plant_leave_diseases_dataset_without_augmentation`). Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/plant_village/Plant_leave_diseases_dataset_without_augmentation/Apple___Apple_scab`.
