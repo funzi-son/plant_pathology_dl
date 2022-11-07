@@ -15,6 +15,24 @@ Python >= 3.7
 
 
 ## Parameters in main.py
+| Parameter                      | Description                                 |
+| ----------------------------- | ---------------------------------------- |
+| ‘item’                     |  Dataset name, i.e., ‘plant_village’, ‘plant_leaves’, ‘PlantDoc’ & ‘PlantDoc_original’. |
+| ‘obj’                     |  .|
+| `model_name`                     |  .|
+| `saveornot`                     |  .|
+| `fig_size`                     |  .|
+| `INIT_LR`                     |  .|
+| `op_z`                     |  .|
+| `TF_weights`                     |  .|
+| `bat_si`                     |  .|
+| `epo`                     |  .|
+| `times `                     |  .|
+| `p_t_w `                     |  .|
+| `d_t_w `                     |  .|
+| `p_w`                     |  .|
+| `d_w `                     |  .|
+| `balance_weight`                     |  .|
 
 
 
