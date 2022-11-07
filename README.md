@@ -37,13 +37,20 @@ Please modify the parameters in `main.py`, then run `python main.py`.
 ## Datasets
 Please downloads the related datasets and put them in the path of dataset_dir.
 
-* Plant Village: i.e., `plant_village` (https://data.mendeley.com/datasets/tywbtsjrjv/1).
+## Datasets
+Please downloads the related datasets and put them in the path of dataset_dir (e.g., `/home/user/Leaf_diseases/Datasets/`).
 
-* Plant Leaves: i.e., `plant_leaves` (https://data.mendeley.com/datasets/hb74ynkjcn/1).
+* Plant Village: i.e., `plant_village` (https://data.mendeley.com/datasets/tywbtsjrjv/1)
+Please download `Plant_leaf_diseases_dataset_without_augmentation.zip`(828MB), then unzip it and rename the folder name to `plant_village` (Note: please remove sub-folder `Background_without_leaves` in `Plant_leave_diseases_dataset_without_augmentation`). Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/plant_village/Plant_leave_diseases_dataset_without_augmentation/Apple___Apple_scab`.
 
-* PlantDoc-0.2: i.e., `PlantDoc` (https://github.com/pratikkayal/PlantDoc-Dataset).
+* Plant Leaves: i.e., `plant_leaves` (https://data.mendeley.com/datasets/hb74ynkjcn/1)
+Please click `download All` (6718 MB) and put them in a folder which should be named `plant_leaves`. Combine the sub-folder name and sub-sub-folder names. E.g., `Alstonia Scholaris (P2) ` has `diseased` & `healthy`, then rename them to `AlstoniaScholaris_diseased` & `AlstoniaScholaris_healthy`. Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/ plant_leaves/AlstoniaScholaris_diseased`.
 
-* PlantDoc-1.0: i.e., `PlantDoc_original` (https://github.com/pratikkayal/PlantDoc-Dataset).
+* PlantDoc-0.2: i.e., `PlantDoc` (https://github.com/pratikkayal/PlantDoc-Dataset)
+
+Please download `PlantDoc-Dataset’ and rename the folder name to `PlantDoc_Dataset`, Please remove the folder `Tomato two spotted spider mites leaf`which only has two pictures in the `test` folder first. Then copy all items from the `test` folder to the `train` folder (Note: the images are case sensitive, and may not be suitable for some Windows environments). Ensure the path looks like this: `/home/user/Leaf_diseases/Datasets/PlantDoc_Dataset/train`.
+	
+* PlantDoc-1.0: i.e., `PlantDoc_original` (https://github.com/pratikkayal/PlantDoc-Dataset)
 
 
 ## Parameters in main.py
