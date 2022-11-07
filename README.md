@@ -17,6 +17,8 @@ Python >= 3.7
 ## Parameters in main.py
 | Parameter                      | Description                                 |
 | ----------------------------- | ---------------------------------------- |
+| `dataset_dir`                     | The path of the dataset, e.g., `/home/user/Leaf_diseases/Datasets/`. |
+| `save_path`                     | The path of results and model will be saved, e.g., `/home/user/Leaf_diseases/test_model/` |
 | `item`                     |  Dataset name, Options: `plant_village`, `plant_leaves`, `PlantDoc` & `PlantDoc_original`. |
 | `obj`                     | Approach name, Options: `multi_model`, `multi_output`, `new_model`, `multi_label` & `cross_stitch`. |
 | `model_name`   | backbone name, Options: `CNN`, `AlexNet`, `VGG`, `ResNet`, `EfficientNet`, `Inception` & `MobileNet`. |
