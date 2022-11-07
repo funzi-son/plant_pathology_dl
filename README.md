@@ -75,6 +75,8 @@ Please download `PlantDoc-Dataset` and rename the folder name to `PlantDoc_origi
 
 
 ## Comparison & Results
+Parts of the comparison & results are as follow. Please see more details in our paper "Deep Learning for Plant Identification and Disease Classification from Leaf Images: Multi-prediction Approaches". Thank you.
+
 <p align="center">
   <img width="600" src="figs/comparison_of_backbones.png">
 </p>
