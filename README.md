@@ -11,7 +11,7 @@ Python >= 3.7
 
 
 ## Usage
-
+Please modify the parameters in `main.py`, then run `python main.py`.
 
 
 ## Parameters in main.py
