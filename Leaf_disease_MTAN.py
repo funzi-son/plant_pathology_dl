@@ -339,7 +339,7 @@ def MTAN(item, obj,dataset_dir,save_path,saveornot, fig_size = 256,  bat_si = 16
     plus = "_"
     save_dir= str(save_path) + str(item)+'_'+str(obj) +'/'
     if item == "PlantDoc_original":
-        trainX, trainDiseaseY, trainPlantY, dir_save, p_type, d_type, testX, disease_y, plant_y = load_data.load_data(dataset_dir,save_dir, model_name, item, obj, fig_size)
+        trainX, trainDiseaseY, trainPlantY, categ, dir_save, p_type, d_type, testX, disease_y, plant_y = load_data.load_data(dataset_dir,save_dir, model_name, item, obj, fig_size)
         trainX=np.array(trainX).reshape(-1, 3, fig_size,fig_size)
         diseaseLB = LabelBinarizer()
         PlantLB = LabelBinarizer()
