@@ -74,7 +74,7 @@ def main(item, obj, model_name,dataset_dir,save_path,saveornot, fig_size = 256, 
     else:
     
         if item == "PlantDoc_original":
-            trainX, trainDiseaseY, trainPlantY, dir_save, p_type, d_type, testX, disease_y, plant_y = load_data.load_data(dataset_dir,save_dir, model_name, item, obj, fig_size)
+            trainX, trainDiseaseY, trainPlantY,categ, dir_save, p_type, d_type, testX, disease_y, plant_y = load_data.load_data(dataset_dir,save_dir, model_name, item, obj, fig_size)
             trainX=np.array(trainX).reshape(-1,fig_size,fig_size,3)
             diseaseLB = LabelBinarizer()
             PlantLB = LabelBinarizer()

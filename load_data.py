@@ -557,7 +557,7 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
             return dataset, categ, dir_save, categories, p_type, d_type
     elif obj == "multi_output" or obj == "multi_model"or obj == "classifier_chains"or obj == "cross_stitch" or obj == "new_model" or obj == "MTAN"or obj == "TSNs"or obj == "MOON": 
         if item == "PlantDoc_original":
-            return trainX, trainDiseaseY, trainPlantY, dir_save, p_type, d_type, testX, disease_y, plant_y 
+            return trainX, trainDiseaseY, trainPlantY,  categ, dir_save, p_type, d_type, testX, disease_y, plant_y 
         else:
             return data, diseaseLabels, PlantLabels,  categ, dir_save, p_type, d_type 
     else:
