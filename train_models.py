@@ -10,10 +10,9 @@ from tensorflow.keras.layers import BatchNormalization,Conv2D,MaxPooling2D,Activ
 from tensorflow.keras.utils import to_categorical
 import tensorflow.keras.backend as K
 import matplotlib.pyplot as plt
-# from tensorflow.keras.optimizers import Adam, Adamax
 from tensorflow.keras.optimizers import *
 
-op_z = 'Adam'
+
 def new_model(input_layer):
     x = Conv2D(32,(3,3), padding='same',activation='relu')(input_layer)
     x= (BatchNormalization(axis=1))(x)    
@@ -34,7 +33,6 @@ def new_model(input_layer):
 def multi_output_model(model_name,input_layer,numPlants,numDis,categ, item, w_p, w_d, w_p_t,w_d_t, TF_weights,obj,op_z,INIT_LR):
 
     if model_name == 'CNN':
-    # model.summary()
         x = new_model(input_layer)
     elif model_name == 'AlexNet':   
         x= (layers.Conv2D(filters=96, kernel_size=(11,11), strides=(4,4), activation='relu'))(input_layer)
@@ -125,14 +123,9 @@ def multi_output_model(model_name,input_layer,numPlants,numDis,categ, item, w_p,
             	"disease_output_t": "categorical_crossentropy",}
         lossWeights = {"plant_output": w_p, "disease_output": w_d,"plant_output_t": w_p_t, "disease_output_t": w_d_t}
    
-        # if item == "plant_village" or item == "plant_leaves":
-        #     model.compile(optimizer='Adamax', loss=losses, loss_weights=lossWeights, metrics=["accuracy"])
-        # elif item == "PlantDoc" or item == "PlantDoc_original":    
         opt = eval(op_z)(learning_rate=INIT_LR)
         model.compile(optimizer=opt, loss=losses, loss_weights=lossWeights, metrics=["accuracy"])
-        # else:
-        #     print('Wrong dataset name!')
-            
+
     elif obj == "multi_label":
         x = (layers.Dense(256,activation='relu'))(x)
         output_total = (layers.Dense(categ,activation='softmax'))(x)
@@ -142,8 +135,6 @@ def multi_output_model(model_name,input_layer,numPlants,numDis,categ, item, w_p,
         opt = eval(op_z)(learning_rate=INIT_LR)
         # model.compile(optimizer=opt, loss=losses, loss_weights=lossWeights, metrics=["accuracy"])
         model.compile(loss='categorical_crossentropy',optimizer=opt,metrics=['accuracy'])
-
-
     return model
 
 
@@ -254,7 +245,6 @@ def multi_model(model_name,input_layer,numPlants,numDis,item, TF_weights,op_z,IN
                 inputs=inputs,
                 outputs=[diseaseBranch, PlantBranch],
                 name="PlantNet")
-            # return the constructed network architecture
             return model
         
     #########################################################
@@ -311,8 +301,8 @@ def multi_model(model_name,input_layer,numPlants,numDis,item, TF_weights,op_z,IN
         
         elif model_name == 'ResNet':
             # from tensorflow.keras.applications import ResNet50
-            # base_model = ResNet50(input_tensor=input_layer, weights=None, include_top=False)
-        
+            # base_model = ResNet50(input_tensor=input_layer, weights=TF_weights, include_top=False)
+            # base_model_2 = ResNet50(input_tensor=input_layer, weights=TF_weights, include_top=False)        
             from tensorflow.keras.applications import ResNet101
             base_model = ResNet101(input_tensor=input_layer, weights=TF_weights, include_top=False)
             base_model_2 = ResNet101(input_tensor=input_layer, weights=TF_weights, include_top=False)
@@ -352,12 +342,9 @@ def multi_model(model_name,input_layer,numPlants,numDis,item, TF_weights,op_z,IN
     	"plant_output": "categorical_crossentropy",
     }
     lossWeights = {"disease_output": 1.0, "plant_output": 1.0}
-    # optimizer and compiling 
-    print("[INFO] compiling model...")
     # opt = Adamax(learning_rate=INIT_LR, decay=INIT_LR / epo)
     # model.compile(optimizer='Adamax', loss=losses, loss_weights=lossWeights,
     # 	metrics=["accuracy"])
-    
     opt = eval(op_z)(learning_rate=INIT_LR)
     model.compile(optimizer=opt, loss=losses, loss_weights=lossWeights, metrics=["accuracy"])
   
@@ -374,15 +361,25 @@ def multi_model(model_name,input_layer,numPlants,numDis,item, TF_weights,op_z,IN
 
 
 #####################################################
-def cross_stitch(model_name,input_layer,numPlants,numDis,item,op_z,INIT_LR):
+'''
+ This code of the Cross-stitch was modified from:
 # https://github.com/AmazaspShumik/mtlearn/blob/8dc623e354df604c062288d8306768f7465fda97/mtlearn/layers/cross_stitch_block.py
+Their paper:
+@InProceedings{Misra_2016_CVPR,
+	author = {Misra, Ishan and Shrivastava, Abhinav and Gupta, Abhinav and Hebert, Martial},
+	title = {Cross-Stitch Networks for Multi-Task Learning},
+	booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+	month = {June},
+	year = {2016}
+}
 
-# from unittest import TestCase
+
+'''
+
+def cross_stitch(model_name,input_layer,numPlants,numDis,item,op_z,INIT_LR):
+
 
     import tensorflow as tf
-    # from tensorflow.keras.models import Model
-    
-    
     from typing import List
     from tensorflow.keras.initializers import RandomUniform
     from tensorflow.keras.layers import Layer
@@ -429,11 +426,7 @@ def cross_stitch(model_name,input_layer,numPlants,numDis,item,op_z,INIT_LR):
     
             outputs = [tf.gather(e, 0, axis=-1) for e in tf.split(stitched_output, len(inputs), axis=-1)]
             return outputs
-    
-    
-    
-    
-    
+
     x_1 = Conv2D(32,(3,3), padding='same')(input_layer)
     x_1 = Conv2D(16, (3, 3), padding="same")(x_1) 
     x_1 = Activation("relu")(x_1)
@@ -484,13 +477,7 @@ def cross_stitch(model_name,input_layer,numPlants,numDis,item,op_z,INIT_LR):
     
     opt = eval(op_z)(learning_rate=INIT_LR)
     model.compile(optimizer=opt, loss=losses, loss_weights=lossWeights, metrics=["accuracy"])
-    # model.compile(loss='categorical_crossentropy',optimizer='Adamax', metrics=['accuracy'])
     return model, CrossStitchBlock
-
-
-
-
-
 
 
 

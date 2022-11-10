@@ -26,57 +26,10 @@ session = InteractiveSession(config=config)
 # ########################################################
 
 
-# global dataset_dir
-# global save_path 
-
-
-
-
-# ###########################################
-
-
-# balance_weight = [0.1,0.1,0.4,0.5]
-
-# # TF_weights='imagenet' #
-# TF_weights=None
-
-# fig_size = 32 #256
-# INIT_LR = 0.001    # INIT_LR = 0.004 
-# op_z = "Adamax"
-
-# # obj = "multi_model"
-# # obj = "multi_output"
-# obj = "new_model"
-# # obj = "multi_label"
-# # obj = "cross_stitch"
-
-# item =  "plant_village"
-# # item = "plant_leaves"
-# # item =  "PlantDoc"
-# # item = "PlantDoc_original"
-
-# saveornot = 'save'
-# # saveornot = 'not'
-
-# bat_si = 16   # batch_size
-# epo = 2 #10000 # epochs
-# times = 1#0
-
-# # model_name =  'CNN'
-# # model_name ='AlexNet'
-# #'VGG', 'ResNet'
-# # model_name =      'EfficientNet' 
-# # model_name =    'Inception'
-# model_name =   'MobileNet'
-
-
-
-
-
 def main(item, obj, model_name,dataset_dir,save_path,saveornot, fig_size = 256,  bat_si = 16,INIT_LR = 0.001, epo = 10000, times = 10, op_z = "Adamax", TF_weights=None,balance_weight = [0.1,0.1,0.4,0.5]):
     plus = "_"
     save_dir= str(save_path) + str(item)+'_'+str(obj) +'/'
-    # save_dir= save_path
+    
     w_p = balance_weight[2] 
     w_d = balance_weight[3] 
     w_p_t = balance_weight[0] 
@@ -118,9 +71,6 @@ def main(item, obj, model_name,dataset_dir,save_path,saveornot, fig_size = 256, 
             split = train_test_split(x, y, test_size=0.2, random_state = 50)
             (x_train, x_test, y_train, y_total_test) = split
             
-        
-    
-    
     else:
     
         if item == "PlantDoc_original":
@@ -482,7 +432,7 @@ def main(item, obj, model_name,dataset_dir,save_path,saveornot, fig_size = 256, 
             plt.tight_layout()
             if saveornot == 'save':
                 plt.savefig(path_save+'/Acc&Val_acc.png',dpi=200)
-            plt.show()
+            # plt.show()
             
             
             plt.figure(2,dpi=200)
@@ -631,11 +581,11 @@ def main(item, obj, model_name,dataset_dir,save_path,saveornot, fig_size = 256, 
                 h.write(item+'_'+obj+'_'+'_'+plus +' 10 times | ' + str(model_name) +'  Mean_Accuracy_disease: '+str(mean_accuracy_disease)+' std_acc_disease: '+ str(std_acc_disease)+ '  Mean_F1_score_disease: '+str(mean_weighted_disease)+' std_f1_disease: '+str(std_f1_disease)+'\n')    
                 h.write(' 10 times_t | ' + str(model_name) +'  Mean_Accuracy_disease_t: '+str(mean_accuracy_disease_t)+' std_acc_disease_t: '+ str(std_acc_disease_t)+ '  Mean_F1_score_disease_t: '+str(mean_weighted_disease_t)+' std_f1_disease_t: '+str(std_f1_disease_t)+'\n'+'\n')    
                 
-            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+'_'+plus +'_' + str(model_name)+'_Accuracy_10_times.txt', ten_accuracy,fmt='%s',delimiter=',')
-            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+'_'+plus +'_' + str(model_name)+'_Weighted_10_times.txt', ten_weighted,fmt='%s',delimiter=',')
+            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+plus +'_' + str(model_name)+'_Accuracy_10_times.txt', ten_accuracy,fmt='%s',delimiter=',')
+            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+plus +'_' + str(model_name)+'_Weighted_10_times.txt', ten_weighted,fmt='%s',delimiter=',')
         
-            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+'_'+plus +'_' + str(model_name)+'_Accuracy_t_10_times.txt', ten_accuracy_t,fmt='%s',delimiter=',')
-            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+'_'+plus +'_' + str(model_name)+'_Weighted_t_10_times.txt', ten_weighted_t,fmt='%s',delimiter=',')
+            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+plus +'_' + str(model_name)+'_Accuracy_t_10_times.txt', ten_accuracy_t,fmt='%s',delimiter=',')
+            np.savetxt(dir_save +'/'+item+'_'+obj+'_'+plus +'_' + str(model_name)+'_Weighted_t_10_times.txt', ten_weighted_t,fmt='%s',delimiter=',')
         else:        
             with open(dir_save+obj+'_' +'_hist_'+item+'_DEVICES_'+DEVICES+'.txt', 'a') as h:
                 h.write(item+'_'+obj+'_' +' 10 times | ' + str(model_name) +'  Mean_Accuracy: '+str(mean_acc)+' std_acc_plant: '+ str(std_acc)+ '  Mean_F1_score: '+str(mean_weighted)+' std_f1: '+str(std_f1)+'\n'+'\n')    
@@ -644,8 +594,8 @@ def main(item, obj, model_name,dataset_dir,save_path,saveornot, fig_size = 256, 
                 h.write(item+'_'+obj+'_' +' 10 times | ' + str(model_name) +'  Mean_Accuracy_plant: '+str(mean_accuracy_plant)+' std_acc_plant: '+ str(std_acc_plant)+ '  Mean_F1_score_plant: '+str(mean_weighted_plant)+' std_f1_plant: '+str(std_f1_plant)+'\n'+'\n')    
                 h.write(item+'_'+obj+'_' +' 10 times | ' + str(model_name) +'  Mean_Accuracy_disease: '+str(mean_accuracy_disease)+' std_acc_disease: '+ str(std_acc_disease)+ '  Mean_F1_score_disease: '+str(mean_weighted_disease)+' std_f1_disease: '+str(std_f1_disease)+'\n'+'\n')    
                 
-            np.savetxt(dir_save +'/'+item+'_'+obj+'_' +'_' + str(model_name)+'_Accuracy_10_times.txt', ten_accuracy,fmt='%s',delimiter=',')
-            np.savetxt(dir_save +'/'+item+'_'+obj+'_' +'_' + str(model_name)+'_Weighted_10_times.txt', ten_weighted,fmt='%s',delimiter=',')
+            np.savetxt(dir_save +'/'+item+'_'+obj+'_' + str(model_name)+'_Accuracy_10_times.txt', ten_accuracy,fmt='%s',delimiter=',')
+            np.savetxt(dir_save +'/'+item+'_'+obj+'_' + str(model_name)+'_Weighted_10_times.txt', ten_weighted,fmt='%s',delimiter=',')
      
     print('All Done!')    
 

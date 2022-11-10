@@ -20,7 +20,7 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
     print(model_name, 'Fig_size: ', fig_size)
     
     dir_save= str(save_dir) + str(item)+'_'+str(obj) +'/'
-    # dir_save= save_dir
+
     global dirtrain
     global dirtest
     
@@ -30,16 +30,10 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
         dirtrain = dataset_dir + 'plant_leaves/'
     elif item == "PlantDoc":  
         dirtrain = dataset_dir + 'PlantDoc_Dataset/train'
-        # categories=sorted(os.listdir(dirtrain))
-        # print(categories)
-        # categ = len(categories)
     elif item == "PlantDoc_original":  
         dirtrain = dataset_dir + 'PlantDoc_original/train'
         dirtest  = dataset_dir + 'PlantDoc_original/test'
-            
 
-    # import sys
-    # sys.path.append(model_dir)
     
     if not os.path.exists(dir_save+'model_save/ModelCheckpoint/'):
         print('ModelCheckpoint folder does not exist, make dir.')
@@ -83,9 +77,6 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
                 for n in categories:
                     path=os.path.join(dirtrain,n)
                     class_num=categories.index(n)
-                    # Plant=n[:n.index("___")]
-                    # # print(n)
-                    # dis = (n[n.index("___")+3:])
                     print(n,'  ',class_num)
                     for i in os.listdir(path):
                 
@@ -95,7 +86,7 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
                             img_array_fs = cv2.resize(img_array, (fig_size, fig_size))
                             dataset.append([img_array_fs,class_num])
                         except Exception as e:
-                            print('Exception occurred',img_path)#, value:',e.value)
+                            print('Exception occurred',img_path)
                             pass
                 print('Saving dataset as pickle files...')
                 pickle_out=open(dir_save+"original/dataset_"+str(fig_size)+".pickle","wb")
@@ -181,7 +172,7 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
                             img_array_fs = cv2.resize(img_array, (fig_size, fig_size))
                             dataset.append([img_array_fs,class_num])
                         except Exception as e:
-                            print('Exception occurred',img_path)#, value:',e.value)
+                            print('Exception occurred',img_path)
                             pass
                 print('Saving dataset as pickle files...')
                 pickle_out=open(dir_save+"original/dataset_"+str(fig_size)+".pickle","wb")
@@ -264,7 +255,7 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
         else:
             print('Item error!')
 
-    elif obj == "multi_output" or obj == "multi_model"or obj == "classifier_chains"or obj == "cross_stitch" or obj == "new_model":     
+    elif obj == "multi_output" or obj == "multi_model"or obj == "classifier_chains"or obj == "cross_stitch" or obj == "new_model"or obj == "MTAN"or obj == "TSNs"or obj == "MOON":     
 
         data = []
   
@@ -564,7 +555,7 @@ def load_data(dataset_dir,save_dir, model_name, item, obj, fig_size):
             return dataset, categ, dir_save,categories, p_type, d_type, test_set
         else:
             return dataset, categ, dir_save, categories, p_type, d_type
-    elif obj == "multi_output" or obj == "multi_model"or obj == "classifier_chains"or obj == "cross_stitch" or obj == "new_model": 
+    elif obj == "multi_output" or obj == "multi_model"or obj == "classifier_chains"or obj == "cross_stitch" or obj == "new_model" or obj == "MTAN"or obj == "TSNs"or obj == "MOON": 
         if item == "PlantDoc_original":
             return trainX, trainDiseaseY, trainPlantY, dir_save, p_type, d_type, testX, disease_y, plant_y 
         else:
