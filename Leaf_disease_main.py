@@ -323,7 +323,7 @@ def main(item, obj, model_name,dataset_dir,save_path,saveornot, fig_size = 256, 
         accuracy_disease = accuracy_score(y_disease_test, y_disease_pred)
         weighted_disease = f1_score(y_disease_test, y_disease_pred, average='weighted')
         # cm_disease = confusion_matrix(y_disease_test, y_disease_pred)#, labels=categories)
-        if obj == "new_model" or obj == "multi_model" or obj == "multi_output":
+        if obj == "new_model" or obj == "multi_model" or obj == "multi_output" or obj == "cross_stitch":
             y_total_test = []
             z = 0
             for l in y_plant_test:   
