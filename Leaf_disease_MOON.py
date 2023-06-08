@@ -19,6 +19,8 @@ from torch.utils.data import TensorDataset,DataLoader
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score,f1_score
 # from ipywidgets import IntProgress
+from tqdm import tqdm
+
 early_stop = 50
 
 DEVICES = '0'
@@ -49,7 +51,7 @@ def calculate_accuracy(y_pred, y):
     acc = correct.float() / y.shape[0]
     return acc
 
-from tqdm.notebook import trange, tqdm
+# from tqdm.notebook import trange, tqdm
 def train(model, iterator, optimizer, criterion, device):
 
     epoch_loss = 0
